@@ -4,7 +4,7 @@ import PostItem from "@/components/PostItem";
 function HomePage() {
     return (
         <>
-            <h1 className="text-lg font-semibold my-4">Dành cho bạn</h1>
+            <Heading title="Dành cho bạn" />
             <article className="w-full">
                 <PostItem />
             </article>
