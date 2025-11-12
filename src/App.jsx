@@ -11,11 +11,12 @@ import ProfilePage from "./pages/ProfilePage";
 import paths from "./paths";
 import FollowingPage from "./pages/FollowingPage";
 import GhostPost from "./pages/GhostPost";
+import CommentModal from "./components/CommentModal";
 
 function App() {
   return (
     <>
-      <Router>
+      <Router basename="/thread-clone-react">
         <Routes>
           <Route element={<DefaultLayout />}>
             <Route index element={<HomePage />} />
@@ -25,6 +26,7 @@ function App() {
             <Route path={paths.followingPage} element={<FollowingPage />} />
             <Route path={paths.ghostPost} element={<GhostPost />} />
 
+            {/* <Route path="/comment" element={<CommentModal />} /> */}
             <Route path="/:username/post-detail/:id" element={<PostDetailPage />} />
           </Route>
         </Routes>

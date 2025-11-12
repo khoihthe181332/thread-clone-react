@@ -11,10 +11,10 @@ import { Button } from "./ui/button"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const icons = [
-    { icon: ["far", "fa-heart"], number: "15,6K" },
-    { icon: ["far", "fa-comment"], number: "1,2K" },
-    { icon: ["fas", "fa-repeat"], number: "687" },
-    { icon: ["far", "fa-paper-plane"], number: "189" }
+    { icon: ["far", "fa-heart"], number: "15,6K", iconName: "like" },
+    { icon: ["far", "fa-comment"], number: "1,2K", iconName: "comment" },
+    { icon: ["fas", "fa-repeat"], number: "687", iconName: "reup" },
+    { icon: ["far", "fa-paper-plane"], number: "189", iconName: "forward" }
 ]
 
 function PopularPost({ post, onClick }) {
@@ -28,6 +28,10 @@ function PopularPost({ post, onClick }) {
     const handleActionClick = (e, actionType) => {
         e.stopPropagation();
         console.log(`Action ${actionType} on post ${post.id}`)
+
+        if (e.target.closest(".comment")) {
+            console.log(post.id)
+        }
     }
 
     return (
@@ -53,7 +57,7 @@ function PopularPost({ post, onClick }) {
                         <Button
                             key={index}
                             variant="ghost"
-                            className="text-[#777] hover:bg-[rgba(255,255,255,0.1)] hover:text-[#777] cursor-pointer rounded-3xl"
+                            className={`text-[#777] hover:bg-[rgba(255,255,255,0.1)] hover:text-[#777] cursor-pointer rounded-3xl ${item.iconName}`}
                             onClick={(e) => handleActionClick(e, item.icon[1])}
                         >
                             <FontAwesomeIcon size="lg" icon={item.icon} />{item.number}

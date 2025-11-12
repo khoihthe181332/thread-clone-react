@@ -51,7 +51,8 @@ function Navigation() {
 
             {/* Nav */}
             <section>
-                <ul className="flex flex-col items-center gap-4">
+                <ul className="flex flex-col items-center gap-4
+                max-md:flex-row max-md:bg-black max-md:fixed max-md:bottom-0 max-md:right-0 max-md:left-0 max-md:justify-between max-md:z-10">
                     {items.map((item, index) => (
                         <li className="my-1" key={index}>
                             <NavLink
